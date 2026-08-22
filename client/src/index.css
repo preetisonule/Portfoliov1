@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-background: #080909;
+  --color-background-secondary: #0D1010;
+  --color-surface: #121616;
+  --color-surface-elevated: #181D1D;
+
+  --color-text-primary: #F4F5F2;
+  --color-text-secondary: #9CA5A2;
+  --color-text-muted: #68716E;
+
+  --color-accent: #D7F43A;
+  --color-accent-hover: #E5FF68;
+  --color-accent-dark: #AFC82A;
+
+  --font-sans: "Inter", "Manrope", sans-serif;
+  --font-display: "Manrope", "Inter", sans-serif;
+
+  --radius-card: 24px;
+  --radius-button: 999px;
+}
+
+:root {
+  font-family: var(--font-sans);
+  color: var(--color-text-primary);
+  background: var(--color-background);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-background);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar for premium feel */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-surface);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-surface-elevated);
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* Base custom classes */
+.text-outline {
+  -webkit-text-stroke: 1px rgba(244, 245, 242, 0.15);
+  color: transparent;
+}
+
+.text-outline-hover:hover {
+  -webkit-text-stroke: 1px var(--color-accent);
+}
