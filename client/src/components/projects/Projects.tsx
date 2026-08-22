@@ -53,13 +53,13 @@ const Projects = () => {
               </span>
               
               <h2 className="text-[clamp(2.5rem,5vw,4.5rem)] font-black leading-[1.0] tracking-tight uppercase">
-                SELECTED <br />
+                FEATURED <br />
                 WORK
               </h2>
             </div>
             
             <p className="max-w-md text-sm md:text-base text-[var(--color-text-secondary)] leading-relaxed">
-              A curated selection of applications showcasing responsive frontends, clean UI systems, and robust database architectures.
+              A curated selection of applications showcasing responsive frontends, clean UI systems, and robust database and System architectures.
             </p>
           </motion.div>
 

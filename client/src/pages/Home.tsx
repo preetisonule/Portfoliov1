@@ -5,7 +5,7 @@ import Projects from "../components/projects/Projects";
 import Skills from "../components/skills/Skills";
 import Experience from "../components/experience/Experience";
 import Stats from "../components/stats/Stats";
-import Testimonials from "../components/testimonials/Testimonials";
+// import Testimonials from "../components/testimonials/Testimonials";
 import Contact from "../components/contact/Contact";
 import Footer from "../components/footer/Footer";
 
@@ -27,7 +27,7 @@ const Home = () => {
         
         <Stats />
         
-        <Testimonials />
+        {/* <Testimonials /> */}
         
         <Contact />
       </main>

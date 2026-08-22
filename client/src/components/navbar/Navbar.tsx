@@ -117,7 +117,7 @@ const Navbar = () => {
                 href="#contact"
                 className="group flex items-center gap-2 rounded-full border border-white/10 px-5 py-2.5 text-xs font-bold uppercase tracking-[0.1em] text-[var(--color-text-primary)] transition-all hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]"
               >
-                <span>Let's Talk</span>
+                <span>OPEN TO WORK</span>
                 <ArrowUpRight size={14} className="transition-transform group-hover:translate-x-[1px] group-hover:-translate-y-[1px]" />
               </a>
             </div>

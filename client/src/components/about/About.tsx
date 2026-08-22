@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import Container from "../common/Container";
 import { fadeUp, staggerContainer } from "../../animations/variants";
-import profileImage from "../../assets/images/profile.png";
+import profileImage from "/StickyNotes.png";
 
 const About = () => {
   return (
@@ -48,7 +48,7 @@ const About = () => {
 
             <div className="flex flex-col gap-6 text-[var(--color-text-secondary)] text-sm sm:text-base leading-relaxed">
               <p className="font-bold text-[var(--color-text-primary)]">
-                I am a Computer Science Engineer based in India, dedicated to exploring how systems run, scale, and interact under the hood.
+                I’m a Computer Science Engineering student who enjoys building things that go beyond the screen. I work across the stack, from designing interfaces and building full-stack applications to exploring backend systems, cloud infrastructure, and scalable software.
               </p>
               
               <p>
@@ -56,7 +56,7 @@ const About = () => {
               </p>
               
               <p>
-                I learn by getting my hands dirty—building tools, testing limits, breaking components, and engineering them back stronger. Outside of programming, I'm likely reading about cloud systems, watching anime, or catching up on Marvel movies.
+                I like taking an idea from a rough concept to something functional, usable, and worth shipping. Along the way, I’m constantly experimenting with new technologies, solving problems, and learning how the systems behind modern software actually work.
               </p>
 
               <div className="flex gap-8 mt-4 border-t border-white/5 pt-6">

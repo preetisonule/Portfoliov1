@@ -39,7 +39,7 @@ const Footer = () => {
             {/* Socials */}
             <div className="flex items-center gap-6">
               <a
-                href="https://github.com"
+                href="https://github.com/preetisonule"
                 target="_blank"
                 rel="noreferrer"
                 className="text-xs uppercase tracking-wider font-bold text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors"
@@ -48,7 +48,7 @@ const Footer = () => {
               </a>
               
               <a
-                href="https://linkedin.com"
+                href="https://linkedin.com/preeti-sonule"
                 target="_blank"
                 rel="noreferrer"
                 className="text-xs uppercase tracking-wider font-bold text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors"
@@ -57,12 +57,12 @@ const Footer = () => {
               </a>
               
               <a
-                href="https://twitter.com"
+                href="https://instagram.com/preetyy.sonule"
                 target="_blank"
                 rel="noreferrer"
                 className="text-xs uppercase tracking-wider font-bold text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors"
               >
-                Twitter
+                Instagram
               </a>
             </div>
 

@@ -20,9 +20,21 @@ const LinkedinIcon = (props: React.SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-const TwitterIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" {...props}>
-    <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
+const InstagramIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg
+    viewBox="0 0 24 24"
+    width="20"
+    height="20"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}
+  >
+    <rect x="3" y="3" width="18" height="18" rx="5" ry="5" />
+    <circle cx="12" cy="12" r="4" />
+    <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" />
   </svg>
 );
 
@@ -122,11 +134,11 @@ const Contact = () => {
                 </span>
                 
                 <a
-                  href="mailto:hello@preetisonule.dev"
+                  href="mailto:preetisonule3186@gmail.com"
                   className="text-lg md:text-xl font-bold text-[var(--color-text-primary)] hover:text-[var(--color-accent)] transition-colors flex items-center gap-3 group"
                 >
                   <Mail size={18} className="text-[var(--color-text-muted)] group-hover:text-[var(--color-accent)] transition-colors" />
-                  <span>hello@preetisonule.dev</span>
+                  <span>preetisonule3186@gmail.com</span>
                 </a>
               </div>
 
@@ -137,7 +149,7 @@ const Contact = () => {
                 
                 <div className="flex items-center gap-6">
                   <a
-                    href="https://github.com"
+                    href="https://github.com/preetisonule"
                     target="_blank"
                     rel="noreferrer"
                     className="text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors"
@@ -147,7 +159,7 @@ const Contact = () => {
                   </a>
                   
                   <a
-                    href="https://linkedin.com"
+                    href="https://linkedin.com/preeti-sonule"
                     target="_blank"
                     rel="noreferrer"
                     className="text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors"
@@ -157,13 +169,13 @@ const Contact = () => {
                   </a>
                   
                   <a
-                    href="https://twitter.com"
+                    href="https://instagram.com/preetyy.sonule"
                     target="_blank"
                     rel="noreferrer"
                     className="text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors"
-                    aria-label="Twitter"
+                    aria-label="Instagram"
                   >
-                    <TwitterIcon />
+                    <InstagramIcon />
                   </a>
                 </div>
               </div>
