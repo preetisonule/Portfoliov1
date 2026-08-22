@@ -78,7 +78,7 @@ const Hero = () => {
 
             <a
               className="portfolio-hero__resume"
-              href="https://drive.google.com/uc?export=download&id=1dCgB-sIMqCzyQ1ziYQ4QcZg6LrbeMHJ7"
+              href="https://drive.google.com/file/d/1vI_eBfTIJJTTptfq6RxBMh6vw1xHZJoc/view?usp=drive_link"
               download="Preeti_Sonule_Resume.pdf"
             >
               Download Resume
