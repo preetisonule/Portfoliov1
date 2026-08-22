@@ -3,7 +3,8 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import contactRoutes from "./routes/contact.routes";
-
+import experienceRoutes from "./routes/experience.routes";
+import projectRoutes from "./routes/project.routes";
 dotenv.config();
 
 const app = express();
@@ -17,8 +18,12 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+
 // Routes
 app.use("/api", contactRoutes);
+app.use("/api", contactRoutes);
+app.use("/api/experience", experienceRoutes);
+app.use("/api/projects", projectRoutes);
 
 // 404 Handler
 app.use((req, res) => {
