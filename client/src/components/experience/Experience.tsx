@@ -12,7 +12,7 @@ const Experience = () => {
   useEffect(() => {
     const fetchExperiences = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/experience");
+        const res = await axios.get("https://portfoliov1-b.onrender.com/api/experience");
         if (res.data && res.data.success && res.data.data.length > 0) {
           setExperiences(res.data.data);
         }

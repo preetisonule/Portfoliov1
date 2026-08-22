@@ -74,7 +74,7 @@ const Contact = () => {
     setStatus({ type: "loading", message: "Sending your message..." });
 
     try {
-      const res = await axios.post("http://localhost:5000/api/contact", formData);
+      const res = await axios.post("https://portfoliov1-b.onrender.com/api/contact", formData);
       if (res.data && res.data.success) {
         setStatus({
           type: "success",

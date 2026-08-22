@@ -14,7 +14,7 @@ const Testimonials = () => {
   useEffect(() => {
     const fetchTestimonials = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/testimonials");
+        const res = await axios.get("https://portfoliov1-b.onrender.com/api");
         if (res.data && res.data.success && res.data.data.length > 0) {
           setTestimonials(res.data.data);
         }
