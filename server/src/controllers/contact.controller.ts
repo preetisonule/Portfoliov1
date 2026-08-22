@@ -41,14 +41,18 @@ export const submitContactForm = async (
       success: true,
       message: "Your message was sent successfully! I'll get back to you soon.",
     });
-  } catch (error) {
-    console.error("Email send error:", error);
-    res.status(500).json({
-      success: false,
-      message: "Failed to send message. Please try again later.",
-    });
-  }
-};
+  } catch (error: any) {
+  console.error("🔥 CONTACT EMAIL ERROR 🔥");
+  console.error(error);
+  console.error("Message:", error?.message);
+  console.error("Code:", error?.code);
+  console.error("Response:", error?.response);
+
+  res.status(500).json({
+    success: false,
+    message: error?.message || "Failed to send email",
+  });
+}
 
 export const healthCheck = (req: Request, res: Response): void => {
   res.json({
