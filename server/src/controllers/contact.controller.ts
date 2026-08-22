@@ -1,4 +1,5 @@
 // src/controllers/contact.controller.ts
+
 import { Request, Response } from "express";
 import { EmailService } from "../services/email.service";
 import type { ContactFormData, ContactResponse } from "../types";
@@ -11,8 +12,13 @@ export const submitContactForm = async (
 ): Promise<void> => {
   const { name, email, subject, message } = req.body;
 
-  // Validate
-  if (!name?.trim() || !email?.trim() || !subject?.trim() || !message?.trim()) {
+  // Validate required fields
+  if (
+    !name?.trim() ||
+    !email?.trim() ||
+    !subject?.trim() ||
+    !message?.trim()
+  ) {
     res.status(400).json({
       success: false,
       message: "All fields are required.",
@@ -22,6 +28,7 @@ export const submitContactForm = async (
 
   // Validate email format
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
   if (!emailRegex.test(email)) {
     res.status(400).json({
       success: false,
@@ -31,31 +38,37 @@ export const submitContactForm = async (
   }
 
   try {
-    // Send email to you
-    await emailService.sendContactEmail({ name, email, subject, message });
-
-    // Send auto-reply to user
-    await emailService.sendAutoReply({ name, email, subject, message });
+    // Send contact message to Preeti's email
+    await emailService.sendContactEmail({
+      name: name.trim(),
+      email: email.trim(),
+      subject: subject.trim(),
+      message: message.trim(),
+    });
 
     res.status(200).json({
       success: true,
-      message: "Your message was sent successfully! I'll get back to you soon.",
+      message:
+        "Your message was sent successfully! I'll get back to you soon.",
     });
   } catch (error: any) {
-  console.error("🔥 CONTACT EMAIL ERROR 🔥");
-  console.error(error);
-  console.error("Message:", error?.message);
-  console.error("Code:", error?.code);
-  console.error("Response:", error?.response);
+    console.error("❌ Contact form email error:", error);
+    console.error("Error message:", error?.message);
+    console.error("Error code:", error?.code);
 
-  res.status(500).json({
-    success: false,
-    message: error?.message || "Failed to send email",
-  });
-}}
+    res.status(500).json({
+      success: false,
+      message: "Failed to send message. Please try again later.",
+    });
+  }
+};
 
-export const healthCheck = (req: Request, res: Response): void => {
-  res.json({
+// Health check
+export const healthCheck = (
+  req: Request,
+  res: Response
+): void => {
+  res.status(200).json({
     success: true,
     message: "Server is running",
     data: {
