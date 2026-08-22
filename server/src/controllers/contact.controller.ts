@@ -52,7 +52,7 @@ export const submitContactForm = async (
     success: false,
     message: error?.message || "Failed to send email",
   });
-}
+}}
 
 export const healthCheck = (req: Request, res: Response): void => {
   res.json({

@@ -1,165 +1,89 @@
-// src/services/email.service.ts
-
-import { transporter } from "../config/nodemailer";
+import { Resend } from "resend";
 import type { ContactFormData } from "../types";
 
+const resend = new Resend(process.env.RESEND_API_KEY);
+
 export class EmailService {
-  private readonly fromEmail: string;
+  private readonly emailTo: string;
 
   constructor() {
-    if (!process.env.EMAIL_USER) {
-      throw new Error("EMAIL_USER is not configured");
+    if (!process.env.RESEND_API_KEY) {
+      throw new Error("RESEND_API_KEY is missing");
     }
 
-    this.fromEmail = process.env.EMAIL_USER;
+    if (!process.env.EMAIL_USER) {
+      throw new Error("EMAIL_USER is missing");
+    }
+
+    this.emailTo = process.env.EMAIL_USER;
   }
 
-  /**
-   * Send contact form submission to Preeti
-   */
   async sendContactEmail(data: ContactFormData): Promise<void> {
     const { name, email, subject, message } = data;
 
-    await transporter.sendMail({
-      from: `"Portfolio Contact" <${this.fromEmail}>`,
-      to: this.fromEmail,
+    const { error } = await resend.emails.send({
+      from: "Portfolio <onboarding@resend.dev>",
+      to: [this.emailTo],
       replyTo: email,
       subject: `Portfolio Contact: ${subject}`,
       html: `
-        <div style="
-          font-family: Arial, sans-serif;
-          max-width: 600px;
-          margin: 0 auto;
-          padding: 30px;
-          background: #f7f7f7;
-        ">
-          <div style="
-            background: #e8a23a;
-            color: white;
-            padding: 20px;
-            border-radius: 10px 10px 0 0;
-          ">
-            <h2 style="margin: 0;">
-              New Portfolio Contact
-            </h2>
-          </div>
+        <h2>New Portfolio Contact</h2>
 
-          <div style="
-            background: white;
-            padding: 25px;
-            border-radius: 0 0 10px 10px;
-          ">
+        <p><strong>Name:</strong> ${name}</p>
 
-            <p>
-              <strong>Name:</strong><br>
-              ${name}
-            </p>
+        <p><strong>Email:</strong> ${email}</p>
 
-            <p>
-              <strong>Email:</strong><br>
-              ${email}
-            </p>
+        <p><strong>Subject:</strong> ${subject}</p>
 
-            <p>
-              <strong>Subject:</strong><br>
-              ${subject}
-            </p>
+        <h3>Message</h3>
 
-            <p>
-              <strong>Message:</strong><br>
-              ${message}
-            </p>
-
-            <hr>
-
-            <p style="font-size: 13px; color: #777;">
-              You can reply directly to this email to respond to ${name}.
-            </p>
-
-          </div>
-        </div>
+        <p>${message}</p>
       `,
     });
+
+    if (error) {
+      throw new Error(error.message);
+    }
   }
 
-  /**
-   * Send automatic confirmation to the person who contacted you
-   */
   async sendAutoReply(data: ContactFormData): Promise<void> {
     const { name, email, subject } = data;
 
-    await transporter.sendMail({
-      from: `"Preeti Sonule" <${this.fromEmail}>`,
-      to: email,
+    const { error } = await resend.emails.send({
+      from: "Preeti Sonule <onboarding@resend.dev>",
+      to: [email],
       subject: "Thanks for reaching out!",
       html: `
-        <div style="
-          font-family: Arial, sans-serif;
-          max-width: 600px;
-          margin: 0 auto;
-          padding: 30px;
-          background: #f7f7f7;
-        ">
+        <h2>Hi ${name} 👋</h2>
 
-          <div style="
-            background: #e8a23a;
-            color: white;
-            padding: 20px;
-            border-radius: 10px 10px 0 0;
-          ">
-            <h2 style="margin: 0;">
-              Thanks for reaching out!
-            </h2>
-          </div>
+        <p>
+          Thanks for reaching out through my portfolio.
+        </p>
 
-          <div style="
-            background: white;
-            padding: 25px;
-            border-radius: 0 0 10px 10px;
-          ">
+        <p>
+          I've received your message regarding:
+        </p>
 
-            <p>Hi ${name},</p>
+        <p>
+          <strong>${subject}</strong>
+        </p>
 
-            <p>
-              Thanks for contacting me through my portfolio.
-              I've received your message regarding:
-            </p>
+        <p>
+          I'll review your message and get back to you as soon as possible.
+        </p>
 
-            <p>
-              <strong>${subject}</strong>
-            </p>
+        <br />
 
-            <p>
-              I'll review your message and get back to you as soon as possible.
-            </p>
-
-            <br>
-
-            <p>
-              Best regards,<br>
-              <strong>Preeti Sonule</strong><br>
-              Software Engineer | Full-Stack Developer
-            </p>
-
-            <hr>
-
-            <p style="font-size: 13px; color: #777;">
-              GitHub:
-              <a href="https://github.com/preetisonule">
-                github.com/preetisonule
-              </a>
-            </p>
-
-            <p style="font-size: 13px; color: #777;">
-              LinkedIn:
-              <a href="https://linkedin.com/in/preeti-sonule">
-                linkedin.com/in/preeti-sonule
-              </a>
-            </p>
-
-          </div>
-        </div>
+        <p>
+          Best regards,<br />
+          <strong>Preeti Sonule</strong><br />
+          Software Engineer | Full-Stack Developer
+        </p>
       `,
     });
+
+    if (error) {
+      throw new Error(error.message);
+    }
   }
 }
