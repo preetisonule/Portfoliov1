@@ -21,7 +21,6 @@ app.use(express.urlencoded({ extended: true }));
 
 // Routes
 app.use("/api", contactRoutes);
-app.use("/api", contactRoutes);
 app.use("/api/experience", experienceRoutes);
 app.use("/api/projects", projectRoutes);
 
