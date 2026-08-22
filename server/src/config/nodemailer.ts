@@ -1,30 +1,33 @@
 // src/config/nodemailer.ts
+
 import nodemailer from "nodemailer";
 import dotenv from "dotenv";
 
 dotenv.config();
 
-// Validate environment variables
-const requiredEnvVars = ["EMAIL_USER", "EMAIL_PASS"] as const;
-for (const envVar of requiredEnvVars) {
-  if (!process.env[envVar]) {
-    throw new Error(`Missing required environment variable: ${envVar}`);
-  }
+const emailUser = process.env.EMAIL_USER;
+const emailPass = process.env.EMAIL_PASS;
+
+if (!emailUser) {
+  throw new Error("EMAIL_USER is missing");
+}
+
+if (!emailPass) {
+  throw new Error("EMAIL_PASS is missing");
 }
 
 export const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
+    user: emailUser,
+    pass: emailPass,
   },
 });
 
-// Verify connection
-transporter.verify((error, success) => {
+transporter.verify((error) => {
   if (error) {
-    console.error("❌ Email transporter error:", error);
+    console.error("❌ SMTP connection failed:", error);
   } else {
-    console.log("✅ Email transporter ready");
+    console.log("✅ SMTP server is ready");
   }
 });
