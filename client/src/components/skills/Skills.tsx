@@ -8,12 +8,14 @@ const skillCategories = [
     title: "FRONTEND ENGINEERING",
     skills: [
       { name: "React 19", level: "Expert" },
-      { name: "TypeScript", level: "Expert" },
-      { name: "JavaScript", level: "Expert" },
+      { name: "TypeScript", level: "Intermediate" },
+      { name: "JavaScript", level: "Advanced" },
       { name: "Tailwind CSS v4", level: "Expert" },
       { name: "Next.js", level: "Advanced" },
       { name: "HTML5 / CSS3", level: "Expert" },
       { name: "Motion (Framer)", level: "Advanced" },
+      { name: "Three.js", level: "Intermediate" },
+      { name: "Material UI", level: "Intermediate" },
     ],
   },
   {
@@ -28,6 +30,17 @@ const skillCategories = [
     ],
   },
   {
+    title: "LANGUAGES",
+    skills: [
+      { name: "C", level: "Advanced" },
+      { name: "C++", level: "Advanced" },
+      { name: "Java", level: "Advanced" },
+      { name: "Javascript", level: "Advanced" },
+      { name: "Python", level: "Intermediate" },
+      { name: "TypeScript", level: "Intermediate" },
+    ],
+  },
+  {
     title: "DEV & CREATIVE TOOLS",
     skills: [
       { name: "Git & GitHub", level: "Expert" },
@@ -35,7 +48,6 @@ const skillCategories = [
       { name: "Docker", level: "Intermediate" },
       { name: "Postman", level: "Advanced" },
       { name: "VS Code", level: "Expert" },
-      { name: "Lighthouse CI", level: "Advanced" },
     ],
   },
 ];
