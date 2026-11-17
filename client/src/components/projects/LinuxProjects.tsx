@@ -88,7 +88,7 @@ const CodeBlock = ({ code }: { code: string }) => {
   );
 };
 
-const LinuxProjectCard = ({ project, index }: { project: LinuxProject; index: number }) => {
+const LinuxProjectCard = ({ project }: { project: LinuxProject; index: number }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
