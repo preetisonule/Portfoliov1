@@ -75,9 +75,9 @@ const Experience = () => {
 
                     {/* Timeline Card */}
                     <motion.div
-                      whileHover={{ y: -6 }}
+                      whileHover={{ y: -6, borderColor: "rgba(232, 162, 58, 0.2)" }}
                       transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                      className="rounded-[1.5rem] border border-white/5 bg-[var(--color-surface)] p-6 md:p-8 shadow-xl"
+                      className="rounded-[1.5rem] border border-white/5 bg-[var(--color-surface)] p-6 md:p-8 shadow-xl transition-colors"
                     >
                       {/* Year */}
                       <span className="inline-block text-xs font-black tracking-widest text-[var(--color-accent)] mb-3 bg-[var(--color-accent)]/10 px-3 py-1 rounded-md uppercase">

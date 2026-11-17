@@ -74,7 +74,7 @@ const Skills = () => {
             </span>
             
             <h2 className="text-[clamp(2.5rem,5vw,4.5rem)] font-black leading-[1.0] tracking-tight uppercase">
-              Technology Stack
+              Technology <span className="shimmer-text">Stack</span>
             </h2>
           </motion.div>
 

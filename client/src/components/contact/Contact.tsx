@@ -159,7 +159,7 @@ const Contact = () => {
                   </a>
                   
                   <a
-                    href="https://linkedin.com/preeti-sonule"
+                    href="https://linkedin.com/in/preeti-sonule"
                     target="_blank"
                     rel="noreferrer"
                     className="text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors"
@@ -183,7 +183,12 @@ const Contact = () => {
           </motion.div>
 
           {/* Right Column: Submission Form */}
-          <motion.div variants={fadeUp} className="rounded-[2rem] border border-white/5 bg-[var(--color-surface)] p-8 shadow-2xl relative">
+          <motion.div
+            variants={fadeUp}
+            whileHover={{ boxShadow: "0 25px 50px -12px rgba(232, 162, 58, 0.08)" }}
+            transition={{ duration: 0.4 }}
+            className="rounded-[2rem] border border-white/5 bg-[var(--color-surface)] p-8 shadow-2xl relative"
+          >
             <form onSubmit={handleSubmit} className="flex flex-col gap-6">
               
               {/* Form Response Alert */}

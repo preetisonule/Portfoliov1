@@ -5,8 +5,9 @@ import axios from "axios";
 import Container from "../common/Container";
 import { mockProjects } from "../../data/mockData";
 import type { Project } from "../../types";
-import { fadeUp, staggerContainer } from "../../animations/variants";
+import { fadeUp, staggerContainer, cardHover } from "../../animations/variants";
 import { getIconByName } from "../common/TechIcons";
+import LinuxProjects from "./LinuxProjects";
 
 const GithubIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -80,7 +81,10 @@ const Projects = () => {
                   }`}
                 >
                   {/* Project Image Frame (lg:col-span-7) */}
-                  <div
+                  <motion.div
+                    initial="rest"
+                    whileHover="hover"
+                    variants={cardHover}
                     className={`relative overflow-hidden rounded-[2rem] border border-white/10 bg-[var(--color-surface)] group cursor-pointer lg:col-span-7 ${
                       !isEven ? "lg:order-2" : ""
                     }`}
@@ -97,13 +101,13 @@ const Projects = () => {
                       <img
                         src={project.imageUrl}
                         alt={project.title}
-                        className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                        className="h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.06]"
                       />
                       
                       {/* Dark overlay */}
-                      <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     </div>
-                  </div>
+                  </motion.div>
 
                   {/* Project Info Block (lg:col-span-5) */}
                   <div
@@ -179,6 +183,9 @@ const Projects = () => {
               );
             })}
           </div>
+
+          {/* Linux Projects Subsection */}
+          <LinuxProjects />
         </motion.div>
       </Container>
     </section>

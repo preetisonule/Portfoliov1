@@ -30,3 +30,17 @@ export interface Testimonial {
   company: string;
   index: number;
 }
+
+export interface LinuxProject {
+  id: string;
+  title: string;
+  subtitle: string;
+  year: string;
+  technologies: string[];
+  githubUrl?: string;
+  overview: string;
+  functionalities: string[];
+  howItWorks: string;
+  code: string;
+  howToRun: string[];
+}

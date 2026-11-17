@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import Container from "../common/Container";
-import { fadeUp, staggerContainer } from "../../animations/variants";
+import { fadeUp, staggerContainer, slideInRight } from "../../animations/variants";
 import profileImage from "/StickyNotes.png";
 
 const About = () => {
@@ -35,7 +35,7 @@ const About = () => {
           </motion.div>
 
           {/* Right Column: Statement & Story */}
-          <motion.div variants={fadeUp} className="flex flex-col justify-start">
+          <motion.div variants={slideInRight} className="flex flex-col justify-start">
             <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[var(--color-accent)] mb-6 flex items-center gap-3">
               <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-accent)]" />
               01 / ABOUT ME
@@ -60,18 +60,21 @@ const About = () => {
               </p>
 
               <div className="flex gap-8 mt-4 border-t border-white/5 pt-6">
-                <div>
-                  <span className="block text-xl font-black text-[var(--color-text-primary)]">01.</span>
-                  <span className="text-[10px] uppercase tracking-wider text-[var(--color-text-muted)] font-bold">Systems Design</span>
-                </div>
-                <div>
-                  <span className="block text-xl font-black text-[var(--color-text-primary)]">02.</span>
-                  <span className="text-[10px] uppercase tracking-wider text-[var(--color-text-muted)] font-bold">API Pipelines</span>
-                </div>
-                <div>
-                  <span className="block text-xl font-black text-[var(--color-text-primary)]">03.</span>
-                  <span className="text-[10px] uppercase tracking-wider text-[var(--color-text-muted)] font-bold">Clean Code</span>
-                </div>
+                {["Systems Design", "API Pipelines", "Clean Code"].map((label, i) => (
+                  <motion.div
+                    key={label}
+                    whileHover={{ y: -3, color: "var(--color-accent)" }}
+                    transition={{ duration: 0.2 }}
+                    className="cursor-default"
+                  >
+                    <span className="block text-xl font-black text-[var(--color-text-primary)]">
+                      {String(i + 1).padStart(2, "0")}.
+                    </span>
+                    <span className="text-[10px] uppercase tracking-wider text-[var(--color-text-muted)] font-bold">
+                      {label}
+                    </span>
+                  </motion.div>
+                ))}
               </div>
             </div>
           </motion.div>
